@@ -32,7 +32,7 @@ function Login() {
         getCredentials({
           user: res.user,
           token: res.token || res.accessToken,
-        })
+        }),
       );
 
       if (res?.user?.role === "admin") {
@@ -79,7 +79,10 @@ function Login() {
         </form>
 
         <p className={styles.footerText}>
-          Don't have an account? <Link to="/register" className={styles.link}>Register</Link>
+          Don't have an account?{" "}
+          <Link to="/register" className={styles.link}>
+            Register
+          </Link>
         </p>
       </div>
     </div>

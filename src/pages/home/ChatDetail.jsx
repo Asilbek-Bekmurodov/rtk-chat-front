@@ -53,17 +53,19 @@ function ChatDetail() {
         payload?.sender || payload?.username || payload?.name || "Guest";
       const senderId =
         payload?.senderId || payload?.userId || payload?.user?.id || null;
-      const isMineById = senderId && (senderId === user?.id || senderId === user?._id);
+      const isMineById =
+        senderId && (senderId === user?.id || senderId === user?._id);
       const isMineByName =
         sender &&
         displayName &&
-        sender.toString().toLowerCase() === displayName.toString().toLowerCase();
+        sender.toString().toLowerCase() ===
+          displayName.toString().toLowerCase();
       const now = Date.now();
       const recentlySent = lastSentRef.current.some(
         (entry) =>
           entry.text === text &&
           entry.sender === displayName &&
-          now - entry.at < 10000
+          now - entry.at < 10000,
       );
       if (isMineById || isMineByName || recentlySent) return;
 

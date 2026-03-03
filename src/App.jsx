@@ -3,12 +3,11 @@ import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import Public from "./pages/public/Public";
 import Dashboard from "./pages/Dashboard/Dashboard";
-
+import ProtectedRoute from "./pages/ProtectedRoute/ProtectedRoute";
 import Home from "./pages/home/Home";
 import Chats from "./pages/home/Chats";
-import Profile from "./pages/home/Profile";
-import ProtectedRoute from "./pages/ProtectedRoute/ProtectedRoute";
 import ChatDetail from "./pages/home/ChatDetail";
+import Profile from "./pages/home/Profile";
 
 function App() {
   return (
