@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./Login.module.css";
 import { useLoginMutation } from "../../app/services/authApi";
 import { useDispatch } from "react-redux";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useSearchParams } from "react-router-dom";
 import { getCredentials } from "../../app/features/authSlice";
 
 function Login() {
@@ -16,6 +16,7 @@ function Login() {
   const dispatch = useDispatch();
   const [login, { isLoading }] = useLoginMutation();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,7 +36,12 @@ function Login() {
         }),
       );
 
-      if (res?.user?.role === "admin") {
+      const redirect = searchParams.get("redirect");
+      const safeRedirect = redirect && redirect.startsWith("/") ? redirect : null;
+
+      if (safeRedirect) {
+        navigate(safeRedirect);
+      } else if (res?.user?.role === "admin") {
         navigate("/dashboard");
       } else {
         navigate("/home");

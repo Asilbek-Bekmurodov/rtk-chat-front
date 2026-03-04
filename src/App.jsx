@@ -8,6 +8,7 @@ import Home from "./pages/home/Home";
 import Chats from "./pages/home/Chats";
 import ChatDetail from "./pages/home/ChatDetail";
 import Profile from "./pages/home/Profile";
+import InviteJoin from "./pages/invite/InviteJoin";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path="/" element={<Public />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/invite/:inviteId" element={<InviteJoin />} />
       <Route element={<ProtectedRoute role="admin" />}>
         <Route path="/dashboard" element={<Dashboard />} />
       </Route>
