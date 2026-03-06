@@ -29,6 +29,17 @@ function Home() {
               Profile
             </NavLink>
           </li>
+
+          <li className={styles.menuItem}>
+            <NavLink
+              to="/home/invites"
+              className={({ isActive }) =>
+                isActive ? `${styles.link} ${styles.active}` : styles.link
+              }
+            >
+              Invites
+            </NavLink>
+          </li>
         </ul>
       </aside>
 

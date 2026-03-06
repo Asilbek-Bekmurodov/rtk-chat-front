@@ -36,6 +36,12 @@ export const chatApi = createApi({
         url: `chats/${chatId}/messages`,
       }),
     }),
+    getInvites: builder.query({
+      query: () => ({
+        url: "invites",
+      }),
+      providesTags: ["chat"],
+    }),
     joinChat: builder.mutation({
       query: (chatId) => ({
         url: `chats/${chatId}/join`,
@@ -46,6 +52,13 @@ export const chatApi = createApi({
     joinInvite: builder.mutation({
       query: (inviteId) => ({
         url: `invites/${inviteId}/join`,
+        method: "POST",
+      }),
+      invalidatesTags: ["chat"],
+    }),
+    acceptInvite: builder.mutation({
+      query: (inviteId) => ({
+        url: `invites/${inviteId}/accept`,
         method: "POST",
       }),
       invalidatesTags: ["chat"],
@@ -72,8 +85,10 @@ export const {
   useCreateChatMutation,
   useGetChatsQuery,
   useGetChatMessagesQuery,
+  useGetInvitesQuery,
   useJoinChatMutation,
   useJoinInviteMutation,
+  useAcceptInviteMutation,
   useInviteToChatMutation,
   useDeleteChatMutation,
 } = chatApi;

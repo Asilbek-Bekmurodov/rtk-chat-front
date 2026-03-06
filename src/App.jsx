@@ -8,6 +8,7 @@ import Home from "./pages/home/Home";
 import Chats from "./pages/home/Chats";
 import ChatDetail from "./pages/home/ChatDetail";
 import Profile from "./pages/home/Profile";
+import Invites from "./pages/home/Invites";
 import InviteJoin from "./pages/invite/InviteJoin";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route index element={<Chats />} />
           <Route path="chats/:chatId" element={<ChatDetail />} />
           <Route path="profile" element={<Profile />} />
+          <Route path="invites" element={<Invites />} />
         </Route>
       </Route>
     </Routes>
